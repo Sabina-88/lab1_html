@@ -1,0 +1,157 @@
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 180px 1fr 180px;
+  grid-template-rows: 120px 1fr 80px;
+  grid-template-areas:
+    "b1 b1 b1"
+    "left main right"
+    "b6 b6 b6";
+  min-height: 100vh;
+}
+
+.block { 
+  padding: 10px; 
+  overflow-wrap: break-word; /* щоб текст не вилазив */
+}
+
+/* Верхній блок 1 */
+.b1 {
+  grid-area: b1;
+  background: #a6c8ff;
+  display: flex;
+  justify-content: space-between; /* меню зліва, X справа */
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* меню зліва */
+.menu a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+.menu a:hover { text-decoration: underline; }
+
+/* прямокутник X */
+.logo-box {
+  background: #ffffff;
+  color: #000;
+  padding: 15px 40px;
+  border: 2px solid #000;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* ліва колонка */
+.left {
+  grid-area: left;
+  display: flex;
+  flex-direction: column;
+}
+.b2, .b5 { 
+  flex: 1; 
+  padding: 10px; 
+}
+.b2 { background: #f4b6a6; }
+.b5 { background: #b6e4b6; }
+
+/* центр */
+.b3 { 
+  grid-area: main; 
+  background: #fff; 
+  padding: 15px; 
+}
+.b3 h2 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+.b3 p {
+  margin-bottom: 15px;
+}
+.b3 ol, .b3 ul {
+  margin-left: 20px; /* відступ для списків */
+  margin-bottom: 15px;
+}
+
+/* права колонка 4 */
+.b4 { 
+  grid-area: right; 
+  background: #f4b6a6; 
+  padding: 10px; 
+}
+.b4 ul {
+  margin-left: 20px; /* відступ для крапок списку */
+}
+
+/* підвал 6 */
+.b6 {
+  grid-area: b6;
+  background: #a6c8ff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* прямокутник Y */
+.y-box {
+  position: absolute;
+  left: 20px;
+  background: #ffffff;
+  color: #000;
+  padding: 15px 40px;
+  border: 2px solid #000;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* базові стилі для всіх зображень */
+img {
+  display: block;
+  margin: 20px auto;
+  height: auto;
+  max-width: 100%;
+}
+
+/* спеціальний клас для колажу з map */
+.map-img {
+  max-width: 1500px; /* справжня ширина */
+  width: 100%;       /* щоб підлаштовувалось під екран */
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+/* 🔹 Блок із фото на сторінці 4 */
+.movie-images {
+  display: flex;           /* фото в ряд */
+  justify-content: center; /* центрування */
+  gap: 20px;               /* відстань між фото */
+  margin-top: 20px;
+}
+
+.movie-images img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* 🔹 Адаптивність: на вузькому екрані фото підряд */
+@media (max-width: 600px) {
+  .movie-images {
+    flex-direction: column;
+    align-items: center;
+  }
+}
